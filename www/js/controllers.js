@@ -1,12 +1,10 @@
 angular.module('starter.controllers', [])
 
 .controller('DashCtrl',['$scope', '$http', function($scope, $http) {
-  //$scope.name = 'Hallo';
+  $scope.unique_request = Math.random();
   $scope.cfdump = '';
+  $scope.requestLink = '';
   $scope.sendPickup = function(){
-
-
-    console.log($scope.flight);
     var request = $http({
       method: 'POST',
       url: 'https://pickmeapp.herokuapp.com/api/pickup',
@@ -22,14 +20,15 @@ angular.module('starter.controllers', [])
           flight: $scope.flight,
           name_pickuper: $scope.name_pickuper,
           email_pickuper: $scope.email_pickuper,
-          message: $scope.message
+          message: $scope.message,
+          uid: $scope.unique_request
         }
       });
       request.success(
         function( data, status, headers, config ) {
 
           $scope.cfdump = data;
-          onsole.log("success");
+          console.log("success");
           console.log($scope.cfdump);
           console.log(data);
         }
@@ -45,6 +44,18 @@ angular.module('starter.controllers', [])
           console.log("status -> " + status);
           console.log("headers -> " + headers);
           console.log("config -> " + JSON.stringify(config));
+          /*
+          $http.get('https://pickmeapp.herokuapp.com/api/show/'+$scope.unique_request).
+          success(function(data, status, headers, config) {
+            console.log("success_uid");
+            console.log("data -> " + JSON.stringify(data));
+            $scope.requestLink = data.link;
+          }).
+          error(function(data, status, headers, config) {
+            console.log("error");
+            console.log("data -> " + JSON.stringify(data));
+          });
+          */
         }
       );
   };

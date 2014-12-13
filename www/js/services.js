@@ -14,6 +14,8 @@ angular.module('starter.services', [])
     { id: 3, name: 'Ash Ketchum' }
   ];
 
+  
+
   return {
     all: function() {
       return friends;

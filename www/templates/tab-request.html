@@ -1,0 +1,25 @@
+<ion-view title="Your Pick Me App Request">
+  <ion-content class="padding">
+    <button class="button button-block button-energized">
+      Pick Me App Request for LH 101
+    </button>
+    <!-- If confirmed by Picker -->
+    <hr></hr>
+    <p>Hey Johnny, send your current Location to Charly - he will Pick you up there</p>
+    <div class="list list-inset">
+      <label class="item item-input">
+        <input type="text" placeholder="Level">
+      </label>
+      <label class="item item-input">
+        <input type="text" placeholder="Letter">
+      </label>
+      <label class="item item-input">
+        <input type="text" placeholder="Number">
+      </label>
+    </div>
+    <p ng-repeat="task in tasks">{{task.title}}</p>
+    <button class="button button-energized">
+      Send Geo
+    </button>
+  </ion-content>
+</ion-view>

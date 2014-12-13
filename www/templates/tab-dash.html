@@ -1,0 +1,25 @@
+<ion-view title="Home">
+  <ion-content class="padding">
+    <h3>Pick Me App</h3>
+    <div class="list" ng-controller="DashCtrl">
+      <label class="item item-input">
+        <input type="text" ng-model="name" placeholder="Your Name">
+      </label>
+      <label class="item item-input">
+        <input type="text" ng-model="flight" placeholder="Flight Number">
+      </label>
+      <label class="item item-input">
+        <input type="text" ng-model="name_pickuper" placeholder="Name Picker">
+      </label>
+      <label class="item item-input">
+        <input type="text" ng-model="email_pickuper" placeholder="E-Mail Picker">
+      </label>
+      <label class="item item-input">
+        <textarea ng-model="message" placeholder="Message"></textarea>
+      </label>
+      <button class="button button-block button-energized" ng-click="sendPickup()"">
+        Pick Me App
+      </button>
+    </div>
+  </ion-content>
+</ion-view>

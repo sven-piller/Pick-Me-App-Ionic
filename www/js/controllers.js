@@ -4,6 +4,8 @@ angular.module('starter.controllers', [])
   $scope.unique_request = Math.random();
   $scope.cfdump = '';
   $scope.requestLink = '';
+  $scope.response_data= '';
+
   $scope.sendPickup = function(){
     var request = $http({
       method: 'POST',
@@ -27,35 +29,21 @@ angular.module('starter.controllers', [])
       request.success(
         function( data, status, headers, config ) {
 
-          $scope.cfdump = data;
+          //$scope.cfdump = data;
           console.log("success");
-          console.log($scope.cfdump);
-          console.log(data);
+          //console.log($scope.cfdump);
+          console.log(JSON.stringify(data));
+          $scope.response_data = data;
         }
       );
       request.error(
         function( data, status, headers, config ) {
-
-          $scope.cfdump = data;
-
           console.log("error");
-          console.log($scope.cfdump);
+          //console.log($scope.cfdump);
           console.log("data -> " + JSON.stringify(data));
           console.log("status -> " + status);
-          console.log("headers -> " + headers);
-          console.log("config -> " + JSON.stringify(config));
-          /*
-          $http.get('https://pickmeapp.herokuapp.com/api/show/'+$scope.unique_request).
-          success(function(data, status, headers, config) {
-            console.log("success_uid");
-            console.log("data -> " + JSON.stringify(data));
-            $scope.requestLink = data.link;
-          }).
-          error(function(data, status, headers, config) {
-            console.log("error");
-            console.log("data -> " + JSON.stringify(data));
-          });
-          */
+          //console.log("headers -> " + headers);
+          //console.log("config -> " + JSON.stringify(config));
         }
       );
   };

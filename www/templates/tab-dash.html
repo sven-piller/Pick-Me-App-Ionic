@@ -2,6 +2,14 @@
   <ion-content class="padding">
     <h3><center><img src="img/Pickmeapp_blank.png"/></center></h3>
     <div class="list" ng-controller="DashCtrl">
+      <div ng-show="flight" class="card">
+        <div class="item item-text-wrap">
+          Hey {{name}},
+          {{response_data.message}}<br>
+          Your flight Status for {{flight}} to {{response_data.airportArrival}} is :{{response_data.flightStatus}} and time status is: {{response_data.timeStatus}}
+          you can see your Request online <a href="https://pickmeapp.herokuapp.com/show/{{response_data.uid}}">here</a>
+        </div>
+      </div>
       <label class="item item-input">
         <input type="text" ng-model="name" placeholder="Your Name">
       </label>
@@ -18,7 +26,7 @@
         <textarea ng-model="message" placeholder="Message"></textarea>
       </label>
       <button class="button button-block button-energized" ng-click="sendPickup()">
-        Pick Me App
+        Send Pick-up Request
       </button>
     </div>
   </ion-content>

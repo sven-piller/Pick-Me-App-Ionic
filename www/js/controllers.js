@@ -5,6 +5,7 @@ angular.module('starter.controllers', [])
   $scope.cfdump = '';
   $scope.requestLink = '';
   $scope.response_data= '';
+  $scope.showCard = false;
 
   $scope.sendPickup = function(){
     var request = $http({
@@ -34,6 +35,7 @@ angular.module('starter.controllers', [])
           //console.log($scope.cfdump);
           console.log(JSON.stringify(data));
           $scope.response_data = data;
+          $scope.showCard = true;
         }
       );
       request.error(
